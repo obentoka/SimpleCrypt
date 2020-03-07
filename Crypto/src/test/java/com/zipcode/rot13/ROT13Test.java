@@ -1,6 +1,8 @@
-import org.junit.Test;
+package com.zipcode.rot13;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ROT13Test {
 
