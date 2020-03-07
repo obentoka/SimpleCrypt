@@ -2,6 +2,11 @@ package com.zipcode.rot13;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ROT13Test {
@@ -90,4 +95,17 @@ public class ROT13Test {
         assertTrue(actual.equals(Q1));
     }
 
+    @Test
+    public void fileTest() throws IOException {
+        ROT13 test = new ROT13();
+        File f1 = new File("/Users/vle/Documents/Projects/Week5/SimpleCrypt 3.7/SimpleCrypt/sonnet18.txt");
+        File f2 = new File("/Users/vle/Documents/Projects/Week5/SimpleCrypt 3.7/SimpleCrypt/sonnet18.enc");
+        test.encryptTextFile(f1);
+        test.encryptTextFile(f2);
+        String expected = new Scanner(f1)
+                .useDelimiter("\\Z").next();
+        String actual = new Scanner(f2)
+                .useDelimiter("\\Z").next();
+        assertEquals(expected, actual);
+    }
 }
